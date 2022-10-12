@@ -6,12 +6,7 @@ import Navbar from "../components/Navbar.vue";
 import Pagination from "../components/Pagination..vue";
 import BeersList from "../components/BeersList.vue";
 import BasicLayout from "../components/BasicLayout.vue";
-import {
-  fetchBeers,
-  validatePage,
-  toggleActiveBtn,
-  convertBeerIBUType,
-} from "../utils/index";
+import { fetchBeers, validatePage, toggleActiveBtn } from "../utils/index";
 
 const router = useRouter();
 const route = useRoute();

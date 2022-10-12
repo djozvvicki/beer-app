@@ -5,6 +5,10 @@ const props = defineProps<{
   beerName: string;
 }>();
 
+const emits = defineEmits<{
+  (e: "update:beerName", beerName: string): void;
+}>();
+
 const beerName = ref<string>(props.beerName);
 </script>
 
@@ -16,6 +20,6 @@ const beerName = ref<string>(props.beerName);
     autocomplete="off"
     placeholder="Search beer name.."
     v-model="beerName"
-    @input="$emit('update:beerName', beerName)"
+    @input="emits('update:beerName', beerName)"
   />
 </template>

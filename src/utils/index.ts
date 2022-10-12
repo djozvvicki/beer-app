@@ -10,27 +10,20 @@ export const fetchBeers = async (
   beerIBUType: boolean
 ): Promise<void> => {
   try {
-    // 1. Create a new endpoint to api with the given page.
     let endpoint = `https://api.punkapi.com/v2/beers?page=${page ?? 1}`;
 
-    // 2. Add beerName to the endpoint.
     if (beerName.length > 0) {
       endpoint += `&beer_name=${beerName.toLowerCase()}`;
     }
 
-    // 3. Add beerIBU to the endpoint.
     if (beerIBU > 0) {
       endpoint += `&ibu_${convertBeerIBUType(
         beerIBUType
       ).toLowerCase()}=${beerIBU}`;
     }
 
-    console.log(endpoint);
-
-    // Get data from endpoint
     const { data } = await axios.get(endpoint);
 
-    // Update beers.
     beers.value = data;
   } catch (err) {
     if (axios.isAxiosError(err)) {
@@ -63,6 +56,6 @@ export const validatePage = (page: number): number => {
   return 1;
 };
 
-export const convertBeerIBUType = (type: boolean): string => {
+export const convertBeerIBUType = (type: boolean): "GT" | "LT" => {
   return type ? "GT" : "LT";
 };

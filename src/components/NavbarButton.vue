@@ -3,6 +3,10 @@ const props = defineProps<{
   content: string;
   name: string;
 }>();
+
+const emits = defineEmits<{
+  (e: "handleClick"): void;
+}>();
 </script>
 
 <template>
@@ -11,6 +15,6 @@ const props = defineProps<{
     type="button"
     :value="props.content"
     :name="props.name"
-    @click="$emit('handleClick')"
+    @click="emits('handleClick')"
   />
 </template>

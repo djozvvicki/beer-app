@@ -11,13 +11,13 @@ const props = defineProps<{
   beerIBUType: boolean;
 }>();
 
-const emits = defineEmits([
-  "handleSearchClick",
-  "handleResetClick",
-  "toggle:IBUType",
-  "update:beerName",
-  "update:beerIBU",
-]);
+const emits = defineEmits<{
+  (e: "handleSearchClick"): void;
+  (e: "handleResetClick"): void;
+  (e: "toggle:IBUType"): void;
+  (e: "update:beerName", $event: any): void;
+  (e: "update:beerIBU", $event: any): void;
+}>();
 
 const beerName = ref<string>(props.beerName);
 const beerIBU = ref<number>(props.beerIBU);

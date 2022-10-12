@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import PaginationItem from "./PaginationItem.vue";
 
-const emits = defineEmits(["changePage"]);
+const emits = defineEmits<{
+  (e: "changePage", num: number): void;
+}>();
 </script>
 
 <template>

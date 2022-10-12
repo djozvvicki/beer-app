@@ -4,7 +4,9 @@ const props = defineProps<{
   isNotFirst?: boolean;
 }>();
 
-const emits = defineEmits(["changePage"]);
+const emits = defineEmits<{
+  (e: "changePage"): void;
+}>();
 </script>
 
 <template>
