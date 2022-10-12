@@ -62,20 +62,16 @@ const handleResetClick = (): void => {
   );
 };
 
-const handlePageChange = (e: Event) => {
-  const target = e.target as HTMLButtonElement;
+const handlePageChange = (pageNum: number) => {
+  const newPage = validatePage(pageNum);
 
-  const newPage = validatePage(Number(target.textContent));
+  page.value = newPage;
 
-  if (target.textContent !== null && target.textContent.length > 0) {
-    page.value = newPage;
-
-    router.push({
-      query: {
-        page: newPage,
-      },
-    });
-  }
+  router.push({
+    query: {
+      page: newPage,
+    },
+  });
 
   toggleActiveBtn(page);
   fetchBeers(beers, newPage, beerName.value, beerIBU.value, beerIBUType.value);
@@ -108,11 +104,11 @@ onMounted(() => {
       :beerIBU="beerIBU"
       @update:beerIBU="beerIBU = $event"
       :beerIBUType="beerIBUType"
-      :handleResetClick="handleResetClick"
-      :handleSearchClick="handleSearchClick"
-      :toggleIBUType="toggleIBUType"
+      @handleResetClick="handleResetClick"
+      @handleSearchClick="handleSearchClick"
+      @toggleIBUType="toggleIBUType"
     />
     <BeersList :beers="beers" />
-    <Pagination :handlePageChange="handlePageChange" />
+    <Pagination @changePage="handlePageChange" />
   </BasicLayout>
 </template>

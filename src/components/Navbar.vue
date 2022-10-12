@@ -9,9 +9,6 @@ const props = defineProps<{
   beerName: string;
   beerIBU: number;
   beerIBUType: boolean;
-  toggleIBUType: Function;
-  handleSearchClick: Function;
-  handleResetClick: Function;
 }>();
 
 const beerName = ref<string>(props.beerName);
@@ -32,17 +29,17 @@ const beerIBU = ref<number>(props.beerIBU);
         :beerIBU="beerIBU"
         @update:beerIBU="$emit('update:beerIBU', $event)"
         :beerIBUType="beerIBUType"
-        :toggleIBUType="toggleIBUType"
+        @toggleIBUType="$emit('toggleIBUType')"
       />
       <NavbarButton
         content="Search"
         name="search-button"
-        :handleClick="handleSearchClick"
+        @handleClick="$emit('handleSearchClick')"
       />
       <NavbarButton
         content="Reset"
         name="reset-button"
-        :handleClick="handleResetClick"
+        @handleClick="$emit('handleResetClick')"
       />
     </div>
   </div>

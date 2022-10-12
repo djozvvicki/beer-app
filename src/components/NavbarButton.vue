@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const props = defineProps<{
-  handleClick: Function;
   content: string;
   name: string;
 }>();
@@ -12,6 +11,6 @@ const props = defineProps<{
     type="button"
     :value="props.content"
     :name="props.name"
-    @click="props.handleClick"
+    @click="$emit('handleClick')"
   />
 </template>

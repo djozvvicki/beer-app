@@ -5,7 +5,6 @@ import { convertBeerIBUType } from "../utils/index";
 const props = defineProps<{
   beerIBU: number;
   beerIBUType: boolean;
-  toggleIBUType: Function;
 }>();
 
 const beerIBU = ref<number>(props.beerIBU);
@@ -25,7 +24,7 @@ const beerIBU = ref<number>(props.beerIBU);
     class="hover:cursor-pointer hover:bg-black hover:text-white duration-150 focus:bg-black focus:text-white py-2 px-5 rounded-xl border-solid border border-black-900 border-l-0 rounded-l-none"
     type="button"
     name="ibuType"
-    @click="toggleIBUType"
+    @click="$emit('toggleIBUType')"
   >
     {{ convertBeerIBUType(props.beerIBUType) }}
   </button>
