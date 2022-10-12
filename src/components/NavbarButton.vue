@@ -1,0 +1,17 @@
+<script setup lang="ts">
+const props = defineProps<{
+  handleClick: Function;
+  content: string;
+  name: string;
+}>();
+</script>
+
+<template>
+  <input
+    class="hover:cursor-pointer bg-black hover:bg-white focus:bg-white text-white hover:text-black focus:text-black py-2 px-5 border-2 border-solid border-black ml-5 mr-1 rounded-xl ease-in-out transition-colors duration-300"
+    type="button"
+    :value="props.content"
+    :name="props.name"
+    @click="props.handleClick"
+  />
+</template>
