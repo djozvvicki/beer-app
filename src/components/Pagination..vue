@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import PaginationItem from "./PaginationItem.vue";
+
+const emits = defineEmits(["changePage"]);
 </script>
 
 <template>
@@ -9,7 +11,7 @@ import PaginationItem from "./PaginationItem.vue";
       :key="num"
       :content="num"
       :isNotFirst="num !== 1"
-      @changePage="$emit('changePage', num)"
+      @changePage="emits('changePage', num)"
     />
   </div>
 </template>

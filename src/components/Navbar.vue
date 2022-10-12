@@ -11,6 +11,14 @@ const props = defineProps<{
   beerIBUType: boolean;
 }>();
 
+const emits = defineEmits([
+  "handleSearchClick",
+  "handleResetClick",
+  "toggle:IBUType",
+  "update:beerName",
+  "update:beerIBU",
+]);
+
 const beerName = ref<string>(props.beerName);
 const beerIBU = ref<number>(props.beerIBU);
 </script>
@@ -23,23 +31,23 @@ const beerIBU = ref<number>(props.beerIBU);
     <div>
       <SearchInput
         :beerName="beerName"
-        @update:beerName="$emit('update:beerName', $event)"
+        @update:beerName="emits('update:beerName', $event)"
       />
       <IBUInput
         :beerIBU="beerIBU"
-        @update:beerIBU="$emit('update:beerIBU', $event)"
+        @update:beerIBU="emits('update:beerIBU', $event)"
         :beerIBUType="beerIBUType"
-        @toggleIBUType="$emit('toggleIBUType')"
+        @toggle:IBUType="emits('toggle:IBUType')"
       />
       <NavbarButton
         content="Search"
         name="search-button"
-        @handleClick="$emit('handleSearchClick')"
+        @handleClick="emits('handleSearchClick')"
       />
       <NavbarButton
         content="Reset"
         name="reset-button"
-        @handleClick="$emit('handleResetClick')"
+        @handleClick="emits('handleResetClick')"
       />
     </div>
   </div>

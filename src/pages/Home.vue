@@ -24,7 +24,7 @@ const beerName = ref<string>("");
 const beerIBU = ref<number>(0);
 const beerIBUType = ref<boolean>(true);
 
-const toggleIBUType = (e: Event): void => {
+const toggleIBUType = (): void => {
   if (beerIBUType.value) {
     beerIBUType.value = false;
   } else {
@@ -106,7 +106,7 @@ onMounted(() => {
       :beerIBUType="beerIBUType"
       @handleResetClick="handleResetClick"
       @handleSearchClick="handleSearchClick"
-      @toggleIBUType="toggleIBUType"
+      @toggle:IBUType="toggleIBUType"
     />
     <BeersList :beers="beers" />
     <Pagination @changePage="handlePageChange" />
