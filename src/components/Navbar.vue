@@ -24,7 +24,7 @@ const beerIBU = ref<number>(props.beerIBU);
 </script>
 
 <template>
-  <navbar
+  <div
     data-testid="navbar"
     class="flex sticky bg-white top-0 z-10 py-3 px-5 w-100% flex-row items-cebter justify-between shadow-black-400 shadow-md mb-5"
   >
@@ -53,5 +53,5 @@ const beerIBU = ref<number>(props.beerIBU);
         @handleClick="emits('handleResetClick')"
       />
     </div>
-  </navbar>
+  </div>
 </template>

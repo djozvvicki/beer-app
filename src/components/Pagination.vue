@@ -12,7 +12,6 @@ const emits = defineEmits<{
     class="flex flex-wrap w-1/6 relative bottom-2 right-5 ml-auto"
   >
     <PaginationItem
-      testid="pagination-item"
       v-for="num in [1, 2, 3, 4]"
       :key="num"
       :content="num"
