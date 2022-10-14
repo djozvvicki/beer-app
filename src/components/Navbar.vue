@@ -24,7 +24,8 @@ const beerIBU = ref<number>(props.beerIBU);
 </script>
 
 <template>
-  <div
+  <navbar
+    data-testid="navbar"
     class="flex sticky bg-white top-0 z-10 py-3 px-5 w-100% flex-row items-cebter justify-between shadow-black-400 shadow-md mb-5"
   >
     <Logo />
@@ -40,15 +41,17 @@ const beerIBU = ref<number>(props.beerIBU);
         @toggle:IBUType="emits('toggle:IBUType')"
       />
       <NavbarButton
+        role="searchButton"
         content="Search"
         name="search-button"
         @handleClick="emits('handleSearchClick')"
       />
       <NavbarButton
+        role="resetButton"
         content="Reset"
         name="reset-button"
         @handleClick="emits('handleResetClick')"
       />
     </div>
-  </div>
+  </navbar>
 </template>

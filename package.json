@@ -7,9 +7,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@testing-library/vue": "^6.6.1",
     "axios": "^1.1.2",
     "lodash": "^4.17.21",
     "vue": "^3.2.40",
@@ -22,6 +25,7 @@
     "@vitejs/plugin-vue": "^3.1.2",
     "autoprefixer": "^10.4.12",
     "eslint": "^8.25.0",
+    "jsdom": "^20.0.1",
     "postcss": "^8.4.17",
     "tailwindcss": "^3.1.8",
     "typescript": "^4.8.4",

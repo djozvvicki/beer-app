@@ -3,7 +3,7 @@ import { ref, onMounted } from "vue";
 import { Beer } from "../types";
 import { useRoute, useRouter } from "vue-router";
 import Navbar from "../components/Navbar.vue";
-import Pagination from "../components/Pagination..vue";
+import Pagination from "../components/Pagination.vue";
 import BeersList from "../components/BeersList.vue";
 import BasicLayout from "../components/BasicLayout.vue";
 import { fetchBeers, validatePage, toggleActiveBtn } from "../utils/index";

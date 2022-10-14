@@ -21,7 +21,6 @@ const beerIBU = ref<number>(props.beerIBU);
     v-model="beerIBU"
     @change="emits('update:beerIBU', Number(beerIBU))"
   />
-
   <button
     class="hover:cursor-pointer hover:bg-black hover:text-white duration-150 focus:bg-black focus:text-white py-2 px-5 rounded-xl border-solid border border-black-900 border-l-0 rounded-l-none"
     type="button"
