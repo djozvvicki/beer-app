@@ -26,10 +26,12 @@ const beerIBU = ref<number>(props.beerIBU);
 <template>
   <div
     data-testid="navbar"
-    class="flex sticky bg-white top-0 z-10 py-3 px-5 w-100% flex-row items-cebter justify-between shadow-black-400 shadow-md mb-5"
+    class="flex flex-col lg:flex-row justify-between sticky bg-white top-0 z-10 py-3 px-5 w-100% shadow-black-400 shadow-md mb-5"
   >
     <Logo />
-    <div>
+    <div
+      class="flex h-48 lg:h-auto flex-col lg:flex-row items-center justify-evenly"
+    >
       <SearchInput
         :beerName="beerName"
         @update:beerName="emits('update:beerName', $event)"
@@ -40,18 +42,20 @@ const beerIBU = ref<number>(props.beerIBU);
         :beerIBUType="beerIBUType"
         @toggle:IBUType="emits('toggle:IBUType')"
       />
-      <NavbarButton
-        role="searchButton"
-        content="Search"
-        name="search-button"
-        @handleClick="emits('handleSearchClick')"
-      />
-      <NavbarButton
-        role="resetButton"
-        content="Reset"
-        name="reset-button"
-        @handleClick="emits('handleResetClick')"
-      />
+      <div class="flex justify-around align-center">
+        <NavbarButton
+          role="searchButton"
+          content="Search"
+          name="search-button"
+          @handleClick="emits('handleSearchClick')"
+        />
+        <NavbarButton
+          role="resetButton"
+          content="Reset"
+          name="reset-button"
+          @handleClick="emits('handleResetClick')"
+        />
+      </div>
     </div>
   </div>
 </template>
