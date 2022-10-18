@@ -7,6 +7,7 @@ import Pagination from "../components/Pagination.vue";
 import BeersList from "../components/BeersList.vue";
 import BasicLayout from "../components/BasicLayout.vue";
 import { fetchBeers, validatePage, toggleActiveBtn } from "../utils/index";
+import { debounce } from "lodash";
 
 const router = useRouter();
 const route = useRoute();
@@ -72,6 +73,10 @@ const handlePageChange = (pageNum: number) => {
   fetchBeers(beers, newPage, beerName.value, beerIBU.value, beerIBUType.value);
 };
 
+const handleChangeBeerName = debounce((newBeerName: string) => {
+  fetchBeers(beers, page.value, newBeerName, beerIBU.value, beerIBUType.value);
+}, 500);
+
 onMounted(() => {
   fetchBeers(
     beers,
@@ -95,7 +100,7 @@ onMounted(() => {
   <BasicLayout>
     <Navbar
       :beerName="beerName"
-      @update:beerName="beerName = $event"
+      @update:beerName="handleChangeBeerName"
       :beerIBU="beerIBU"
       @update:beerIBU="beerIBU = $event"
       :beerIBUType="beerIBUType"
