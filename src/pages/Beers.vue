@@ -3,6 +3,11 @@ import axios from "axios";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { Beer } from "../types";
+import Loader from "../components/Loader.vue";
+import DetailsBeerImage from "../components/DetailsBeerImage.vue";
+import DetailsBeerFoodPairing from "../components/DetailsBeerFoodPairing.vue";
+import DetailsBeerDescription from "../components/DetailsBeerDescription.vue";
+import DetailsBeerAuthorName from "../components/DetailsBeerAuthorName.vue";
 
 const route = useRoute();
 
@@ -30,43 +35,26 @@ const authorName = (): string => {
       contributed_by.indexOf("<") + 1,
       contributed_by.indexOf(">")
     );
-  } else {
-    return "";
   }
+
+  return "";
 };
 </script>
 
 <template>
   <div class="relative text-black text-xl p-5">
     <div v-if="beer">
-      <img
-        :src="beer.image_url"
-        :alt="beer.name"
-        class="h-96 border border-gray-200 px-2 py-5 shadow-md mr-10 float-left"
+      <DetailsBeerImage :imageURL="beer.image_url" :name="beer.name" />
+      <DetailsBeerDescription
+        :abv="beer.abv"
+        :name="beer.name"
+        :description="beer.description"
+        :ibu="beer.ibu"
+        :tagline="beer.tagline"
       />
-      <div>
-        <h1 class="text-4xl pt-3 font-bold">{{ beer.name }}</h1>
-        <div class="flex mt-4 mb-2">
-          <span class="">{{ beer.tagline }}</span>
-          <span class="ml-5"><strong>IBU:</strong> {{ beer.ibu }}</span>
-          <span class="ml-5"><strong>ABV:</strong> {{ beer.abv }}</span>
-        </div>
-        <p class="max-w-4xl">
-          {{ beer.description }}
-        </p>
-      </div>
-      <ul class="clear-both pt-5 list-disc">
-        <h3 class="text-3xl font-bold mb-3">Food pairing</h3>
-        <li class="ml-10" v-for="food_pair in beer.food_pairing">
-          {{ food_pair }}
-        </li>
-      </ul>
-      <div class="flex">
-        <h3 class="font-bold mb-3 mt-5">Author:</h3>
-        <p class="mb-3 mt-5 ml-5">{{ authorName() }}</p>
-      </div>
+      <DetailsBeerFoodPairing :foodPairing="beer.food_pairing" />
+      <DetailsBeerAuthorName :author="authorName" />
     </div>
-
-    <div v-else>Loading...</div>
+    <Loader v-else />
   </div>
 </template>
