@@ -32,9 +32,7 @@ onMounted(async () => {
   try {
     const id = getValidID(route.params.id);
 
-    const { data } = await axios.get(
-      endpoint.toString() + `/${route.params.id ?? 1}`
-    );
+    const { data } = await axios.get(endpoint.toString() + `/${id ?? 1}`);
 
     beer.value = data[0];
   } catch (err) {
@@ -69,6 +67,28 @@ const authorName = (): string => {
       />
       <DetailsBeerFoodPairing :foodPairing="beer.food_pairing" />
       <DetailsBeerAuthorName :author="authorName" />
+      <div
+        class="absolute top-4 right-4 p-2 rounded-full border-2 duration-150 border-black hover:cursor-pointer"
+        @click="router.back()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-arrow-left translate-x-0 hover:-translate-x-1 duration-150"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <line x1="5" y1="12" x2="11" y2="18"></line>
+          <line x1="5" y1="12" x2="11" y2="6"></line>
+        </svg>
+      </div>
     </div>
     <Loader v-else />
   </div>
