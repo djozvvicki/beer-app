@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/vue";
-import SearchInput from "../SearchInput.vue";
+import SearchInput from "../NavbarSearchInput.vue";
 import { describe, it, expect } from "vitest";
 
 describe("SearchInput.vue", () => {

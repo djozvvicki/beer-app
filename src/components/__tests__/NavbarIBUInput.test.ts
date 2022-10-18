@@ -1,5 +1,5 @@
 import { fireEvent, render } from "@testing-library/vue";
-import IBUInput from "../IBUInput.vue";
+import IBUInput from "../NavbarIBUInput.vue";
 import { describe, it, expect } from "vitest";
 
 describe("IBUInput.vue", () => {
