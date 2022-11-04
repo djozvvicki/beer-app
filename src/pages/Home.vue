@@ -73,9 +73,9 @@ const handlePageChange = (pageNum: number) => {
   fetchBeers(beers, newPage, beerName.value, beerIBU.value, beerIBUType.value);
 };
 
-const handleChangeBeerName = debounce((newBeerName: string) => {
-  fetchBeers(beers, page.value, newBeerName, beerIBU.value, beerIBUType.value);
-}, 500);
+const handleChangeBeerName = (newBeerName: string) => {
+  beerName.value = newBeerName;
+};
 
 onMounted(() => {
   fetchBeers(

@@ -8,15 +8,15 @@ const props = defineProps<{
 
 <template>
   <div
-    class="w-screen flex-wrap flex justify-center mr-auto ml-auto relative mb-5"
+    class="beersList w-screen flex flex-row flex-wrap justify-content-center text-700 gap-2 p-3"
   >
     <router-link
+      v-if="props.beers && props.beers.length > 0"
+      v-for="beer in props.beers"
       data-testid="beer"
       :to="{ path: `/beers/${beer.id}` }"
-      class="flex flex-col w-10/12 md:w-2/6 lg:w-1/5 py-5 bg-white justify-center relative outline-none z-0 hover:z-1 items-center border border-gray-200 shadow-md shadow-gray-100 m-1 p-3 hover:scale-105 ease-in-out focus:scale-105 duration-300"
+      class="flex flex-column w-3 no-underline text-900 shadow-1 p-2 text-center beerItem"
       :key="beer.name"
-      v-for="beer in props.beers"
-      v-if="props.beers && props.beers.length > 0"
     >
       <p class="text-2xl font-bold text-center mb-3">{{ beer.name }}</p>
       <p class="text-xl">
@@ -24,12 +24,24 @@ const props = defineProps<{
         <span> Food Pairing: {{ beer.food_pairing.length }}</span>
       </p>
     </router-link>
-
     <div
-      class="flex hover:cursor-pointer select-none flex-col w-10/12 md:w-2/6 lg:w-1/5 bg-white justify-center relative outline-none z-0 hover:z-1 items-center h-32 border border-gray-200 shadow-md shadow-gray-100 m-1 p-3 hover:scale-105 ease-in-out focus:scale-105 duration-300"
+      class="flex flex-column w-3 no-underline text-900 shadow-1 p-2 text-center"
       v-else
     >
-      <p data-testid="no-beers" class="text-2xl">No beers</p>
+      <div data-testid="no-beers" class="text-lg">No beers</div>
     </div>
   </div>
 </template>
+
+<style>
+.beersList {
+  height: calc(100vh - 5rem);
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.beerItem:hover {
+  transform: scale(105%);
+  transition: transform 0.15s ease-in-out;
+}
+</style>

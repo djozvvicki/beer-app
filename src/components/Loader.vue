@@ -1,7 +1,9 @@
+<script setup lang="ts">
+import ProgressSpinner from "primevue/progressspinner";
+</script>
+
 <template>
-  <div class="w-screen h-screen bg-white flex items-center justify-center">
-    <div
-      class="animate-spin border-4 border-black border-t-transparent border-b-transparent w-16 h-16 rounded-full"
-    ></div>
+  <div class="w-full h-screen flex align-items-center justify-content-center">
+    <ProgressSpinner stroke-width="5" />
   </div>
 </template>

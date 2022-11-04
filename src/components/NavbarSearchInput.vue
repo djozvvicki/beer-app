@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import InputSearch from "primevue/inputtext";
 
 const props = defineProps<{
   beerName: string;
@@ -13,13 +14,12 @@ const beerName = ref<string>(props.beerName);
 </script>
 
 <template>
-  <input
+  <InputSearch
     role="searchInput"
-    class="w-3/4 md:w-1/2 outline-none rounded-xl py-2 px-5 lg:mr-3 border-gray-200 border border-solid bg-transparent placeholder:opacity-50 focus:border-black hover:border-black duration-150"
     type="search"
     name="search"
     autocomplete="off"
-    placeholder="Search beer name.."
+    placeholder="Search by name.."
     v-model="beerName"
     @input="emits('update:beerName', beerName)"
   />

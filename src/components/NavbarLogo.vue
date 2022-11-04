@@ -1,5 +1,5 @@
 <template>
-  <h1 class="font-bold text-2xl select-none flex items-center justify-center">
+  <h1 class="font-bold flex flex-row align-items-center">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="icon icon-tabler icon-tabler-beer scale-150 mr-2"
