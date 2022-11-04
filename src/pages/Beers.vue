@@ -60,7 +60,6 @@ const authorName = (): string => {
     <div v-if="beer" class="flex flex-wrap">
       <DetailsBeerImage :imageURL="beer.image_url" :name="beer.name" />
       <DetailsBeerDescription
-        class="w-seventy"
         :abv="beer.abv"
         :name="beer.name"
         :description="beer.description"
@@ -79,8 +78,4 @@ const authorName = (): string => {
   </div>
 </template>
 
-<style scoped>
-.w-seventy {
-  width: 70%;
-}
-</style>
+<style scoped></style>

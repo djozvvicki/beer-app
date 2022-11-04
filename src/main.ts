@@ -12,4 +12,5 @@ const app = createApp(App);
 
 app.use(PrimeVue, { ripple: true });
 app.use(router);
+
 app.mount("#app");

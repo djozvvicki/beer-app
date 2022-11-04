@@ -6,9 +6,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <img
-    :src="imageURL"
-    :alt="name"
-    class="h-96 border border-gray-200 px-2 py-5 shadow-md mr-10 float-left"
-  />
+  <div class="w-full sm:w-10rem flex justify-content-center h-18rem">
+    <img :src="imageURL" :alt="name" class="h-full" />
+  </div>
 </template>

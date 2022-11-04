@@ -9,7 +9,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div>
+  <div class="w-full md:w-9">
     <h1 class="text-4xl pt-3 font-bold">{{ name }}</h1>
     <div class="flex mt-4 mb-2">
       <span class="">{{ tagline }}</span>
