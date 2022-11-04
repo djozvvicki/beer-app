@@ -26,21 +26,27 @@ const beerIBU = ref<number>(props.beerIBU);
 <template>
   <div
     data-testid="navbar"
-    class="flex justify-content-between shadow-2 h-5rem p-2"
+    class="flex flex-column lg:flex-row justify-content-between shadow-2 h-full lg:h-6rem p-2"
   >
-    <NavbarLogo />
-    <div class="flex align-items-center h-full">
-      <NavbarSearchInput
-        :beerName="beerName"
-        class="mr-2"
-        @update:beerName="emits('update:beerName', $event)"
-      />
-      <NavbarIBUInput
-        :beerIBU="beerIBU"
-        @update:beerIBU="emits('update:beerIBU', $event)"
-        :beerIBUType="beerIBUType"
-        @toggle:IBUType="emits('toggle:IBUType')"
-      />
+    <div class="flex justify-content-center">
+      <NavbarLogo />
+    </div>
+    <div
+      class="flex flex-column lg:flex-row justify-content-center align-items-center h-full lg:w-6"
+    >
+      <div class="w-full flex flex-column align-items-center md:flex-row">
+        <NavbarSearchInput
+          :beerName="beerName"
+          class="mr-2"
+          @update:beerName="emits('update:beerName', $event)"
+        />
+        <NavbarIBUInput
+          :beerIBU="beerIBU"
+          @update:beerIBU="emits('update:beerIBU', $event)"
+          :beerIBUType="beerIBUType"
+          @toggle:IBUType="emits('toggle:IBUType')"
+        />
+      </div>
       <div class="relative flex m-2">
         <NavbarButton
           role="searchButton"

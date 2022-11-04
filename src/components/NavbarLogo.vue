@@ -2,9 +2,9 @@
   <h1 class="font-bold flex flex-row align-items-center">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="icon icon-tabler icon-tabler-beer scale-150 mr-2"
-      width="24"
-      height="24"
+      class="icon icon-tabler icon-tabler-beer mr-2"
+      width="48"
+      height="48"
       viewBox="0 0 24 24"
       stroke-width="2"
       stroke="currentColor"

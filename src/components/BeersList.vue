@@ -15,7 +15,7 @@ const props = defineProps<{
       v-for="beer in props.beers"
       data-testid="beer"
       :to="{ path: `/beers/${beer.id}` }"
-      class="flex flex-column w-3 no-underline text-900 shadow-1 p-2 text-center beerItem"
+      class="flex flex-column w-full sm:w-8 md:w-4 lg:w-3 xl:w-2 no-underline text-900 shadow-1 p-2 text-center beerItem h-12rem"
       :key="beer.name"
     >
       <p class="text-2xl font-bold text-center mb-3">{{ beer.name }}</p>

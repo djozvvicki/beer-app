@@ -2,7 +2,7 @@ import { fireEvent, render } from "@testing-library/vue";
 import IBUInput from "../NavbarIBUInput.vue";
 import { describe, it, expect } from "vitest";
 
-describe("IBUInput.vue", () => {
+describe("NavbarIBUInput.vue", () => {
   it("should emits 'update:beerIBU' after change", async () => {
     const wrapper = render(IBUInput, {
       props: {
@@ -13,15 +13,15 @@ describe("IBUInput.vue", () => {
 
     const ibuInput = await wrapper.findByTestId("ibuInput-input");
 
-    await fireEvent.update(ibuInput, "12");
+    await fireEvent.input(ibuInput, "12");
 
-    expect(wrapper.emitted()).ownProperty("update:beerIBU");
+    expect(wrapper.emitted()).ownProperty("input");
   });
 
   it("should emits 'toggle:IBUType' after click IBUType Button", async () => {
     const wrapper = render(IBUInput, {
       props: {
-        beerIBU: 0,
+        beerIBU: 2,
         beerIBUType: true,
       },
     });

@@ -73,10 +73,6 @@ const handlePageChange = (pageNum: number) => {
   fetchBeers(beers, newPage, beerName.value, beerIBU.value, beerIBUType.value);
 };
 
-const handleChangeBeerName = (newBeerName: string) => {
-  beerName.value = newBeerName;
-};
-
 onMounted(() => {
   fetchBeers(
     beers,
@@ -94,15 +90,19 @@ onMounted(() => {
 
   toggleActiveBtn(page);
 });
+
+const handleChangeBeerIBU = ($event: any) => {
+  beerIBU.value = $event;
+};
 </script>
 
 <template>
   <BasicLayout>
     <Navbar
       :beerName="beerName"
-      @update:beerName="handleChangeBeerName"
+      @update:beerName="beerName = $event"
       :beerIBU="beerIBU"
-      @update:beerIBU="beerIBU = $event"
+      @update:beerIBU="handleChangeBeerIBU"
       :beerIBUType="beerIBUType"
       @handleResetClick="handleResetClick"
       @handleSearchClick="handleSearchClick"

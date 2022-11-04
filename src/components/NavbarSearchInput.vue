@@ -15,6 +15,7 @@ const beerName = ref<string>(props.beerName);
 
 <template>
   <InputSearch
+    class="mb-2 w-11 md:w-6 lg:mb-0"
     role="searchInput"
     type="search"
     name="search"

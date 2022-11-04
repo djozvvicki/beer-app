@@ -17,28 +17,30 @@ describe("PaginationItem.vue", () => {
     expect(wrapper.emitted()).ownProperty("changePage");
   });
 
-  it("should has class border-l-0 after render", async () => {
+  it("should has class 'bg-indigo-400' after render", async () => {
+    const wrapper = render(PaginationItem, {
+      props: {
+        content: 1,
+        active: true,
+      },
+    });
+
+    const paginationItem = await wrapper.findByTestId("pagination-item");
+
+    expect(paginationItem.classList.contains("bg-indigo-400")).toBe(true);
+  });
+
+  it("shoud has not class 'bg-indigo-400' after render", async () => {
     const wrapper = render(PaginationItem, {
       props: {
         content: 2,
         isNotFirst: true,
+        active: false,
       },
     });
 
     const paginationItem = await wrapper.findByTestId("pagination-item");
 
-    expect(paginationItem.classList.contains("border-l-0")).toBe(true);
-  });
-
-  it("shoud has not class border-l-0 after render", async () => {
-    const wrapper = render(PaginationItem, {
-      props: {
-        content: 1,
-      },
-    });
-
-    const paginationItem = await wrapper.findByTestId("pagination-item");
-
-    expect(paginationItem.classList.contains("border-l-0")).not.toBe(true);
+    expect(paginationItem.classList.contains("bg-indigo-400")).toBe(false);
   });
 });

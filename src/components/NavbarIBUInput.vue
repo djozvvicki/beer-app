@@ -10,21 +10,26 @@ const props = defineProps<{
 
 const emits = defineEmits<{
   (e: "toggle:IBUType"): void;
-  (e: "update:beerIBU", beerIBU: number): void;
+  (e: "update:beerIBU", $event: any): void;
 }>();
 
 const beerIBU = ref<number>(props.beerIBU);
+
+const handleInput = (event: any) => {
+  beerIBU.value = event.value ?? 0;
+  emits("update:beerIBU", event.value ?? 0);
+};
 </script>
 
 <template>
-  <div class="p-inputgroup">
+  <div class="p-inputgroup mb-2 lg:mb-0 w-11 md:w-6">
     <InputNumber
       data-testid="ibuInput-input"
-      type="text"
+      type="number"
       name="ibu"
       placeholder="IBU Number"
       v-model="beerIBU"
-      @input="emits('update:beerIBU', Number(beerIBU))"
+      @input="handleInput"
     />
     <Button
       data-testid="ibuInput-button"
