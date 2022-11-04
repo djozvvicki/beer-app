@@ -1,4 +1,4 @@
-# Basic Chat App
+# Beer App
 
 To run the application on your machine, make sure you have NodeJS and npm installed.
 
